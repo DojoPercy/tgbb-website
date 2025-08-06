@@ -3,6 +3,7 @@ import type { Metadata } from 'next'
 import { GeistSans } from 'geist/font/sans'
 import { GeistMono } from 'geist/font/mono'
 import Navbar from '@/components/navbar'
+import { Toaster } from 'sonner'
 
 export const metadata = {
   title: "TGB Boardroom – Empowering African Governance",
@@ -69,6 +70,7 @@ html {
       <body>
         <Navbar /> {/* ← Insert navbar here */}
         {children}
+        <Toaster />
       </body>
     </html>
   )

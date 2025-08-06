@@ -12,8 +12,8 @@ const navItems = [
   { name: 'ABOUT US', href: '/about' },
   { name: 'MEMBERSHIP', href: '/membership' },
   { name: 'OUR MAGAZINE', href: '/our-magazine' },
+  { name: 'BOARDROOM DIGITAL', href: '/boardroom-digital' },
   { name: 'EVENTS', href: '#' },
-  {name: 'INITIATIVES', href: '#'},
   { name: 'CONTACT', href: '/#contact' },
 ]
 
@@ -72,9 +72,11 @@ export default function Navbar() {
                 )
               })}
 
-              <Button className="bg-gradient-to-r from-[#2E3192] to-[#1e2270] hover:from-[#1e2270] hover:to-[#2E3192] text-white px-6 py-2 rounded-full font-semibold shadow-lg">
-                JOIN NOW
-              </Button>
+              <Link href="/membership">
+                <Button className="bg-gradient-to-r from-[#2E3192] to-[#1e2270] hover:from-[#1e2270] hover:to-[#2E3192] text-white px-6 py-2 rounded-full font-semibold shadow-lg">
+                  JOIN NOW
+                </Button>
+              </Link>
             </div>
           </div>
 
@@ -93,7 +95,7 @@ export default function Navbar() {
       {/* Mobile Menu */}
       {isMenuOpen && (
         <div className="lg:hidden bg-white shadow-md border-t">
-          <div className="px-4 py-4 space-y-4">
+          <div className="px-2 py-4 space-y-4">
             {navItems.map(({ name, href }) => {
               const isAnchor = href.includes('#')
               const isActive =
@@ -104,7 +106,7 @@ export default function Navbar() {
                 <Link
                   key={name}
                   href={href}
-                  className={`block px-4 py-2 text-sm font-semibold transition-colors ${
+                  className={`block px-2 py-2 text-sm font-semibold transition-colors ${
                     isActive
                       ? 'text-[#2E3192] border-l-4 border-[#2E3192] bg-gray-100'
                       : 'text-gray-700 hover:text-[#2E3192]'
@@ -116,9 +118,11 @@ export default function Navbar() {
               )
             })}
 
-            <Button className="w-full bg-gradient-to-r from-[#2E3192] to-[#1e2270] hover:from-[#1e2270] hover:to-[#2E3192] text-white py-2 rounded-full font-semibold shadow-lg">
-              JOIN NOW
-            </Button>
+            <Link href="/membership">
+              <Button className="w-full bg-gradient-to-r from-[#2E3192] to-[#1e2270] hover:from-[#1e2270] hover:to-[#2E3192] text-white py-2 rounded-full font-semibold shadow-lg">
+                JOIN NOW
+              </Button>
+            </Link>
           </div>
         </div>
       )}

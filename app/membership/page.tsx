@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import PaymentModal from "@/components/payment-modal"
 import {
   Users,
   Crown,
@@ -53,13 +54,19 @@ export default function MembershipPage() {
               </p>
 
               <div className="flex flex-col sm:flex-row gap-6">
-                <Button
-                  size="lg"
-                  className="bg-gradient-to-r from-yellow-400 to-orange-500 hover:from-yellow-500 hover:to-orange-600 text-black font-bold px-8 py-4 rounded-full shadow-2xl transform hover:scale-105 transition-all"
-                >
-                  Apply for Membership
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
+                <PaymentModal 
+                  membershipType="premium" 
+                  amount={100}
+                  trigger={
+                    <Button
+                      size="lg"
+                      className="bg-gradient-to-r from-yellow-400 to-orange-500 hover:from-yellow-500 hover:to-orange-600 text-black font-bold px-8 py-4 rounded-full shadow-2xl transform hover:scale-105 transition-all"
+                    >
+                      Apply for Membership
+                      <ArrowRight className="ml-2 h-5 w-5" />
+                    </Button>
+                  }
+                />
                 <Button
                   size="lg"
                   variant="outline"
@@ -180,9 +187,15 @@ export default function MembershipPage() {
                   ))}
                 </div>
 
-                <Button className="w-full bg-gradient-to-r from-[#CBAF75] to-yellow-500 hover:from-yellow-500 hover:to-[#CBAF75] text-black font-bold py-3 rounded-full mt-8">
-                  Apply for Basic Membership
-                </Button>
+                <PaymentModal 
+                  membershipType="basic" 
+                  amount={10}
+                  trigger={
+                    <Button className="w-full bg-gradient-to-r from-[#CBAF75] to-yellow-500 hover:from-yellow-500 hover:to-[#CBAF75] text-black font-bold py-3 rounded-full mt-8">
+                      Apply for Basic Membership
+                    </Button>
+                  }
+                />
               </CardContent>
             </Card>
 
@@ -196,7 +209,7 @@ export default function MembershipPage() {
                   <Crown className="h-8 w-8 text-black" />
                 </div>
                 <CardTitle className="text-2xl font-bold text-white mb-4">Premium Membership</CardTitle>
-                <div className="text-4xl font-bold text-[#CBAF75] mb-2">$100</div>
+                <div className="text-4xl font-bold text-[#CBAF75] mb-2">$500</div>
                 <div className="text-gray-300">per year</div>
                 <div className="text-sm text-gray-300 mt-2">For C-Suite Executives with 10+ years experience</div>
               </CardHeader>
@@ -224,9 +237,15 @@ export default function MembershipPage() {
                   ))}
                 </div>
 
-                <Button className="w-full bg-gradient-to-r from-[#CBAF75] to-yellow-500 hover:from-yellow-500 hover:to-[#CBAF75] text-black font-bold py-3 rounded-full mt-8">
-                  Apply for Premium Membership
-                </Button>
+                <PaymentModal 
+                  membershipType="premium" 
+                  amount={500}
+                  trigger={
+                    <Button className="w-full bg-gradient-to-r from-[#CBAF75] to-yellow-500 hover:from-yellow-500 hover:to-[#CBAF75] text-black font-bold py-3 rounded-full mt-8">
+                      Apply for Premium Membership
+                    </Button>
+                  }
+                />
               </CardContent>
             </Card>
           </div>
@@ -346,13 +365,19 @@ export default function MembershipPage() {
           </div>
 
           <div className="flex flex-col sm:flex-row gap-8 justify-center">
-            <Button
-              size="lg"
-              className="bg-gradient-to-r from-[#CBAF75] to-yellow-500 hover:from-yellow-500 hover:to-[#CBAF75] text-black font-bold px-12 py-4 rounded-full shadow-2xl transform hover:scale-105 transition-all"
-            >
-              Apply for Membership
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Button>
+            <PaymentModal 
+              membershipType="premium" 
+              amount={100}
+              trigger={
+                <Button
+                  size="lg"
+                  className="bg-gradient-to-r from-[#CBAF75] to-yellow-500 hover:from-yellow-500 hover:to-[#CBAF75] text-black font-bold px-12 py-4 rounded-full shadow-2xl transform hover:scale-105 transition-all"
+                >
+                  Apply for Membership
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Button>
+              }
+            />
             <Button
               size="lg"
               variant="outline"
