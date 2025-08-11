@@ -3,11 +3,11 @@
 import { useState } from 'react'
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog'
 import { Button } from '@/components/ui/button'
-import SimplePaymentForm from '@/components/simple-payment-form'
+import HybridPaymentForm from '@/components/hybrid-payment-form'
 import { CreditCard, X } from 'lucide-react'
 
 interface PaymentModalProps {
-  membershipType: 'basic' | 'premium'
+  membershipType: 'basic' | 'premium' | 'elite' | 'vip' | 'fellow'
   amount: number
   trigger?: React.ReactNode
 }
@@ -39,7 +39,7 @@ export default function PaymentModal({ membershipType, amount, trigger }: Paymen
       <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
         <DialogHeader>
           <DialogTitle className="text-2xl font-bold text-[#2E3192]">
-            Complete Your {membershipType === 'premium' ? 'Premium' : 'Basic'} Membership
+            Complete Your {membershipType.charAt(0).toUpperCase() + membershipType.slice(1)} Membership
           </DialogTitle>
           <DialogDescription className="text-lg">
             Join The Governance & Business Boardroom and unlock exclusive benefits
@@ -47,9 +47,9 @@ export default function PaymentModal({ membershipType, amount, trigger }: Paymen
         </DialogHeader>
         
         <div className="mt-6">
-          <SimplePaymentForm 
+          <HybridPaymentForm 
             amount={amount}
-            currency="USD"
+            membershipType={membershipType}
             onSuccess={handleSuccess}
             onError={handleError}
           />
